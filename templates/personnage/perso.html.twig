@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnages{% endblock %}
+
+{% block monTitre %}Listes des personnage{% endblock %}
+
+
+{% block body %}
+<div>pseudo : {{ pseudo }}</div>
+<div> age : {{ age }}</div>
+<div> force : {{ carac.force }}</div>
+<div> agilite : {{ carac.agilite }}</div>
+<div> intelligence : {{ carac.intelligence }}</div>
+
+{% endblock %}
