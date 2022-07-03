@@ -1,0 +1,26 @@
+{# étent de la base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# titre de l'onglet #}
+{% block title %}Les armes{% endblock %}
+
+{# titre de la page #}
+{% block monTitre %}Liste des Armes{% endblock %}
+
+{% block body %}
+{# récupération des données du controleur des armes #}
+<table class="table">
+    <tr class="thead-dark">       
+        <th>Image</th>
+        <th>Nom</th>        
+    </tr>
+    {% for arme in armes %}
+    <tr>
+        <td><img src="{{ asset('images/armes/' ~  arme.nom ~ '.png')}}"></td>
+        <td><a href= "{{ path('afficher_arme', {'nom' :  arme.nom|lower}) }}"> {{ arme.nom }} </a></td> 
+      
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

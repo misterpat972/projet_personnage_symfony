@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Personnage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,8 +15,6 @@ class PersonnageController extends AbstractController
     public function index(): Response
     {
         return $this->render('personnage/index.html.twig');
-          
-       
     }
 
     /**
@@ -23,16 +22,22 @@ class PersonnageController extends AbstractController
      */
     public function perso(): Response
     {
+
+        Personnage::create();
         return $this->render('personnage/perso.html.twig', [
-            "pseudo" => "Bobby",
-            "age" => 25,
-            "carac" => [
-                "force" => 3,
-                "agilite" => 2,               
-                "intelligence" => 3,               
-            ],
+            "players" => Personnage::$personnages
         ]);
-          
-        
+    }
+
+    /**
+     * @Route("/perso/{nom}", name="afficher_personnage")
+     */
+    public function afficherperso($nom)
+    {   
+        Personnage::create();
+        $perso =  Personnage::getPersonnageParNom($nom);
+        return $this->render('personnage/lepersonnage.html.twig', [
+            "lepersonnage" => $perso
+        ]);
     }
 }

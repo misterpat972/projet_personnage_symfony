@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block title %}Arme{% endblock %}
+
+{% block monTitre %}
+arme {{arme.nom}}
+{% endblock %}
+
+{% block body %}
+{# récupération des données du controleur arme #}
+
+<div class="row">
+    <div class="col-2">
+        <img src="{{ asset('images/armes/' ~ arme.nom ~ '.png') }}" alt="">
+    </div>
+    <div class="col">
+        <h2>{{ arme.nom }}</h2>
+        <p><span> Description :</span> {{ arme.description }}</p>
+        <p><span> Dégat :</span> {{ arme.degats }}</p>    
+        
+    </div>
+</div>
+
+{% endblock %}

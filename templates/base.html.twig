@@ -7,10 +7,12 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {# bootstrap #}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('CSS/main.css')}}">
+        {# script CSS #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}        
         {% endblock %}
-
+        {# script javaScript #}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
@@ -20,6 +22,7 @@
         {# titre #}
         <h1 class="rounder border border-dark bg-primary p-2 m-2 text-white">{% block monTitre %}{% endblock %}</h1>
         {% block body %}{% endblock %}
+        
         <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>

@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %}Personnage{% endblock %}
+
+{% block monTitre %}
+personnage {{lepersonnage.nom}}
+{% endblock %}
+
+{% block body %}
+{# récupération des données du controleur personnage #}
+
+<div class="row">
+    <div class="col-2">
+        <img src="{{ asset('images/personnages/' ~ lepersonnage.nom ~ '.png') }}" alt="">
+    </div>
+    <div class="col">
+        <h2>{{ lepersonnage.nom }}</h2>
+        <div>
+            {% if lepersonnage.sexe %}
+                Homme
+            {% else %}
+                Femme
+            {% endif %}
+        </div>
+        <h3>les caractéristiques</h3>
+        <ul>
+            <li>Force : {{ lepersonnage.carac.force }}</li>
+            <li>Agilité : {{ lepersonnage.carac.agilite }}</li>
+            <li>Intelligence : {{ lepersonnage.carac.intelligence }}</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
