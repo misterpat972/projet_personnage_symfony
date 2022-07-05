@@ -4,9 +4,9 @@ namespace App\Entity;
 
 class Arme{
 
-    public $nom;
-    public $description;
-    public $degats;
+    private $nom;
+    private $description;
+    private $degats;
 
 
     public static $armes = [];
@@ -19,19 +19,52 @@ class Arme{
         self::$armes[] = $this;
     }
 
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getDegats()
+    {
+        return $this->degats;
+    }
+
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
+    public function setDegats($degats)
+    {
+        $this->degats = $degats;
+    }
+
+
 
     public static function create()
     {
-        $arme1 = new arme("epee", "une superbe épée tranchante", 10);
-        $arme2 = new arme("hache", "un hache de moyen prix", 5);
-        $arme3 = new arme("arc", "une superbe arc bien précise", 15);
+       new arme("épée", "une superbe épée tranchante", 10);
+       new arme("hache", "une arme ou un outil", 15);
+       new arme("arc", "une arme à distance", 7);
     }
 
 
     public static function getArmeParNom($nom)
     {
         foreach (self::$armes as $arme) {
-            if (strtolower($arme->nom) === $nom) {
+            if (strtolower(str_replace("é", "e",$arme->nom) === $nom)) {
                 return $arme;
             }
         }
